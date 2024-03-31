@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!SPDX-FileCopyrightText: 2023 Ken Inaba rightman20020920@yahoo.co,jp>
+<!#-Licence-Identifire: BSD-3-Clause>
+
+<html>
+<head>
+	<title>ルーレット</title>
+</head>
+
+<body bgcolor="#FFE5A">
+	
+	<center>
+	<font size = "10">
+	<br>
+	<hi>当たりペットボトルは、これ！</hi>
+	<br>	
+	<input type="button" value="START" onclick="START()" />
+	<p id="output"></p>
+    </font>
+    <font size="5">
+    最大値：<input type="number" id="max" value ="10" required minlength="4" maxlength="8" size="10" />
+    <br>
+    最小値：<input type="number" id="mini" value ="5" required minlength="4" maxlength="8" size="10" />
+	</font>	
+	</center>
+	<script>
+    let i=0;
+    let start=0;
+    function showrandom(){
+        const mini= parseInt(document.getElementById("mini").value);
+        const max= parseInt(document.getElementById("max").value);
+        var rand=1+max-mini;
+        var random_1 = Math.floor( Math.random() * rand)+mini;
+        document.getElementById("output").innerHTML =random_1;
+        
+    }
+    function START(){
+        start=1;
+        console.log(start);
+    }
+    function guruguru(){
+        var random_0 = Math.floor( Math.random() * 8)+1;
+        console.log(i);
+        if(start==1){
+            document.getElementById("output").innerHTML =random_0;
+            i++;
+        }
+        if(i>100){
+             start=0;
+             i=0;
+            showrandom();
+        }
+    }
+    setInterval('guruguru()',10)
+    
+    </script>
+
+</body>
+
+</html>
