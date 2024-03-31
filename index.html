@@ -18,14 +18,26 @@
 	<p id="output"></p>
     </font>
     <font size="5">
-    最大値：<input type="number" id="max" value ="10" required minlength="4" maxlength="8" size="10" />
-    <br>
-    最小値：<input type="number" id="mini" value ="5" required minlength="4" maxlength="8" size="10" />
+        <div id="inputForm" style="display: none;">
+            ため：<input type="number" id="tame" value="5" required minlength="4" maxlength="8" size="10" /><br>
+            最大値：<input type="number" id="max" value="10" required minlength="4" maxlength="8" size="10" /><br>
+            最小値：<input type="number" id="mini" value="5" required minlength="4" maxlength="8" size="10" />
+            <br>
+            <audio  autoplay id="audio_1" controls>
+                <source src = "music/dlamm.mp3" type = "audio/mp3">
+            </audio>
+            <br>
+            <audio  autoplay id="audio_2" controls>
+                <source src = "music/ja-n.mp3" type = "audio/mp3">
+            </audio>
+        </div>
+    <input type="button" value="メニュー" onclick="menyu()" />
 	</font>	
 	</center>
 	<script>
     let i=0;
     let start=0;
+    let sw=0;
     function showrandom(){
         const mini= parseInt(document.getElementById("mini").value);
         const max= parseInt(document.getElementById("max").value);
@@ -37,24 +49,38 @@
     }
     function START(){
         start=1;
+        document.getElementById("audio_1").currentTime = 0;
+        document.getElementById("audio_2").currentTime = 0;
         console.log(start);
     }
     function guruguru(){
         var random_0 = Math.floor( Math.random() * 8)+1;
-        console.log(i);
         if(start==1){
+            document.getElementById("audio_1").play();
+            document.getElementById("audio_2").pause();
             document.getElementById("output").style.color="black";
             document.getElementById("output").innerHTML =random_0;
             i++;
         }
-        if(i>100){
+        if(i>100*parseInt(document.getElementById("tame").value)){
              start=0;
              i=0;
+             document.getElementById("audio_1").pause();
+             document.getElementById("audio_2").play();
             showrandom();
         }
     }
     setInterval('guruguru()',10)
     
+    function menyu(){
+        if(sw==0){
+            document.getElementById("inputForm").style.display = "block";
+            sw=1;
+        }else{
+            sw=0;
+            document.getElementById("inputForm").style.display = "none";
+        }
+    }
     </script>
 
 </body>
