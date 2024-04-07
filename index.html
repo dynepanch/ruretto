@@ -15,10 +15,11 @@
 	<hi>当たりペットボトルは、これ！</hi>
 	<br>
 	<div id="kakusu" style="display: block;">
-	<input type="button" value="START" onclick="START()" />
-	<p id="output"></p>
+		<input type="button" value="START" onclick="START()" />
+		<p id="output"></p>
 	</div>
     </font>
+    <input type="button" id="kirikae" onclick="hyouzi()" />
     <font size="5">
         <div id="inputForm" style="display: none;">
             ため：<input type="number" id="tame" value="5" required minlength="4" maxlength="8" size="10" /><br>
@@ -33,7 +34,7 @@
                 <source src = "music/ja-n.mp3" type = "audio/mp3">
             </audio>
         </div>
-    <input type="button" value="kirikae" onclick="hyouzi()" />
+    
     <input type="button" value="メニュー" onclick="menyu()" />
 	</font>	
 	</center>
