@@ -14,12 +14,18 @@
 	<br>
 	<hi>当たりペットボトルは、これ！</hi>
 	<br>
-	<div id="kakusu" style="display: block;">
-		<input type="button" value="START" onclick="START()" />
+	<input type="button" value="START" onclick="START()" />
+    <div id="kakusu" style="display: block;">
 		<p id="output"></p>
 	</div>
     </font>
-    <input type="button" value="隠す" onclick="hyouzi()" />
+    <br>
+    <button id="1" type="button" onclick="hyouzi()" >
+        <font size="1">
+            <p id="kirikae">
+            </p>
+        </font>
+    </button>
     <br>
     <font size="5">
         <div id="inputForm" style="display: none;">
@@ -44,6 +50,7 @@
     let start=0;
     let sw=0;
     let sw_2=1;
+    document.getElementById("kirikae").innerHTML ="隠す";
     function showrandom(){
         const mini= parseInt(document.getElementById("mini").value);
         const max= parseInt(document.getElementById("max").value);
@@ -89,14 +96,14 @@
     }
 function hyouzi(){
      
-	if(sw==0){
+	if(sw_2==0){
             document.getElementById("kakusu").style.display = "block";
-	　　document.getElementById("kirikae").innerHTML ="隠す";
-            sw=1;
+	        document.getElementById("kirikae").innerHTML ="隠す";
+            sw_2=1;
         }else{
-            sw=0;
+            sw_2=0;
             document.getElementById("kakusu").style.display = "none";
-	    document.getElementById("kirikae").innerHTML ="表示";
+	        document.getElementById("kirikae").innerHTML ="表示";
         }
     }
     </script>
